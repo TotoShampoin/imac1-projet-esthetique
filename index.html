@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Strong Is This AI?</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- <script src="./vendors/p5.min.js"></script> -->
+    <script src="./vendors/ml5.min.js"></script>
+    <script src="./script/main.js" type="module" defer></script>
 </head>
 <body>
-    <h1>How Strong Is This AI?</h1>
+    <header>
+        <h1>How Strong Is This AI?</h1>
+    </header>
+    <main>
+        <ul class="menu">
+            <li><button id="upload">
+                <svg class="icon">
+                    <use href="./asset/upload.svg#upload"></use>
+                </svg>
+            </button></li>
+            <li><button id="webcam" disabled>
+                <svg class="icon">
+                    <use href="./asset/camera.svg#camera"></use>
+                </svg>
+            </button></li>
+        </ul>
+        <div id="image"></div>
+        <ul class="list" id="guesses">
+            <li>
+                <var>.5</var>
+                <p>thing</p>
+            </li>
+            <li>
+                <var>.5</var>
+                <p>thing</p>
+            </li>
+            <li>
+                <var>.5</var>
+                <p>thing</p>
+            </li>
+        </ul>
+        <ul class="list" id="parameters"></ul>
+    </main>
+    <footer>
+        <p>&copy; TotoShampoin, Parzi_Val 2023</p>
+    </footer>
 </body>
 </html>
