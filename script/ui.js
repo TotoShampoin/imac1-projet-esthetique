@@ -48,13 +48,14 @@ function placeBoid(boid) {
 }
 
 export function writeGuesses(guesses) {
-    $guesses.innerHTML = "";
+    let html = "";
     for(let guess of guesses) {
-        $guesses.innerHTML += `<li>
+        html += `<li>
             <var>${Math.round(guess.confidence * 1000)/10}%</var>
             <p>${guess.label}</p>
         </li>`;
     }
+    if(html != $guesses.innerHTML) $guesses.innerHTML = html;
 }
 
 // The display loop (60 fps)
