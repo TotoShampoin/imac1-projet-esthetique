@@ -1,5 +1,12 @@
+:root {
+    --shadow: #000 0 0;
+}
+
 body {
     margin: 0;
+    background: #FED;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* overscroll-behavior-y: contain; */
 }
 
 h1, h2, p, a, ul, ol, li, button {
@@ -11,11 +18,16 @@ h1, h2, p, a, ul, ol, li, button {
     background: none;
     border: none;
 }
+svg {
+    display: block;
+}
 
 header {
     display: grid;
     place-items: center;
     height: 3rem;
+    background: #F80;
+    box-shadow: var(--shadow);
 }
 header h1 {
     font-size: 1.5rem;
@@ -35,13 +47,32 @@ button {
     display: grid;
     place-items: center;
     width: 3rem; height: 3rem;
-    background: #EEE;
-    box-shadow: #0005 0 .125rem .25rem;
+    background: #FC8;
+    box-shadow: var(--shadow);
+    border-radius: .5rem;
 }
 button .icon {
     width: 2rem;
     height: 2rem;
 }
+
+button.small {
+    width: 2rem; height: 2rem;
+    border-radius: 1rem;
+}
+button.small .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+button.tiny {
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 1rem;
+}
+button.tiny .icon {
+    width: 1rem;
+    height: 1rem;
+}
+
 
 button:active {
     background: #DDD;
@@ -54,23 +85,209 @@ button:disabled .icon {
     fill: #AAA;
 }
 
+button[data-value=false] .icon-false {
+    display: block;
+}
+button[data-value=false] .icon-true {
+    display: none;
+}
+button[data-value=true] .icon-false {
+    display: none;
+}
+button[data-value=true] .icon-true {
+    display: block;
+}
+
+input {
+    margin: 0;
+    font: inherit;
+}
+
+hr {
+    border: none;
+}
+
+.ai-zone {
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    height: 5em;
+    gap: .5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list li {
+    display: flex;
+    width: 100%;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.loading-icon {
+    width: 4rem; height: 4rem;
+    animation: rotating 2s linear infinite;
+}
+.loading-text {
+    width: max-content;
+}
+
+.guesses {
+    width: calc(100% - 2.5rem);
+    max-width: calc(100% - 2.5rem);
+    height: 100%;
+    box-sizing: border-box;
+    padding: .25rem;
+    border-radius: .5rem;
+    background-color: #FDB;
+}
+.guess-score {
+    width: 4rem;
+}
+.guess-name {
+    width: 100%;
+    height: 1.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.parameters {
+    gap: .5rem;
+}
+.parameters li {
+    align-items: center;
+}
+.parameters p {
+    width: 6rem;
+}
+
+.image {
+    width: 100%;
+    max-width: 24rem;
+    max-height: 24rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.image canvas {
+    display: block;
+    width: 100%;
+    touch-action: none;
+}
+
 .menu {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.list li {
-    display: flex;
-    gap: 1rem;
-}
-.list li select {
-    width: 4rem;
+.param {
+    display: block;
+    width: 12rem;
+    border-radius: .25rem;
+    background: #FC8;
 }
 
-#image canvas {
-    width: 100%;
-    max-width: 24rem;
-    max-height: 24rem;
-    box-shadow: #0005 0 .125rem .25rem;
+:is(select, input[type=color]).param {
+    height: 2rem;
+    padding: .25rem .5rem;
+    border: none;
+}
+
+input[type=range].param {
+    appearance: none;
+    height: 1.25rem;
+    background: #FC8;
+}
+input[type=range].param::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1.25rem;
+    border-radius: .25rem;
+    background: #F80;
+}
+
+input[type=checkbox].param {
+    appearance: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+input[type=checkbox].param::after {
+    content: " ";
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .25rem;
+    background: #FC8;
+}
+input[type=checkbox].param:checked::after {
+    background-color: #F80;
+    background-image: url("./asset/check.svg");
+    background-size: cover;
+}
+
+.popup-screen {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 50;
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    background: #0008;
+}
+.popup-screen.hidden {
+    display: none;
+}
+.popup {
+    --padding: 1rem;
+    position: relative;
+    max-width: 28rem;
+    overflow: hidden;
+    border-radius:calc(1.5 * var(--padding));
+    background: #FFF;
+}
+.popup-title {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: var(--padding);
+    padding-block: var(--padding);
+    font-weight: bold;
+    background: #F80;
+}
+.popup-text {
+    padding-inline: var(--padding);
+    padding-block: .5rem var(--padding);
+    text-align: justify;
+}
+.popup-text p {
+    margin-block: .5rem;
+}
+.popup-text p:first-child {
+    margin-top: 0;
+}
+.popup-text p:last-child {
+    margin-bottom: 0;
+}
+
+.floating {
+    position: absolute;
+    top: .5rem; left: .5rem;
+}
+
+@keyframes rotating {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }

@@ -1,0 +1,56 @@
+[{
+    "name": "pen-color",
+    "title": "Pen color",
+    "options": ["#000000"],
+    "type": "color" 
+}, {
+    "name": "pen-size",
+    "title": "Pen size",
+    "options": [5, 30, 5, 10],
+    "type": "range" 
+}, "hr", {
+    "name": "fit_mode",
+    "title": "Fit mode",
+    "options": ["fill", "fit"],
+    "type": "select"
+}, {
+    "name": "grayscale",
+    "title": "Gray scale",
+    "options": [0, 1, 0.01, 0],
+    "type": "range"
+}, {
+    "name": "invert",
+    "title": "Invert",
+    "options": [false, true],
+    "type": "boolean"
+}, "hr", {
+    "name": "translate-x",
+    "title": "Translate X",
+    "options": [-480, 480, 1, 0],
+    "type": "range"
+}, {
+    "name": "translate-y",
+    "title": "Translate Y",
+    "options": [-480, 480, 1, 0],
+    "type": "range"
+}, {
+    "name": "rotate",
+    "title": "Rotate",
+    "options": [0, 360, 1, 0],
+    "type": "range"
+}, {
+    "name": "scale-x",
+    "title": "Scale X",
+    "options": [0.25, 4, 0.01, 1],
+    "type": "range"
+}, {
+    "name": "scale-y",
+    "title": "Scale Y",
+    "options": [0.25, 4, 0.01, 1],
+    "type": "range"
+}, {
+    "name": "repeat",
+    "title": "Repeat",
+    "options": [true, false],
+    "type": "boolean"
+}]

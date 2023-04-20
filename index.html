@@ -13,36 +13,66 @@
 <body>
     <header>
         <h1>How Strong Is This AI?</h1>
+        <button class="tiny floating" id="popup-open">
+            <svg class="icon">
+                <use href="./asset/info.svg#info"></use>
+            </svg>
+        </button>
     </header>
     <main>
+        <div class="popup-screen" id="popup-screen">
+            <div class="popup">
+                <div class="popup-title">
+                    <h2>What is this?</h2>
+                    <button class="tiny" id="popup-close">
+                        <svg class="icon">
+                            <use href="./asset/close.svg#close"></use>
+                        </svg>
+                    </button>    
+                </div>
+                <div class="popup-text">
+                    <p>This is an application that calls the ML5 image classifier <a target="_blank" href="https://learn.ml5js.org/#/reference/image-classifier">MobileNet</a> to analyze a provided image. The goal is to see how well it performs, even when modifications are brought to the image.</p>
+                    <p>You can use this default blue jay, or provide your own picture, or even use your phone's camera. You can also use the various settings to change the image itself, and you can even draw on the image using your finger.</p>
+                    <p>Have fun with the settings, see how it affects the classification, and don't be afraid to confuse the AI! :D</p>
+                </div>
+            </div>
+        </div>
+        <div class="ai-zone">
+            <li><button class="small" id="pause" data-value="false">
+                <svg class="icon icon-false">
+                    <use href="./asset/pause.svg#pause"></use>
+                </svg>
+                <svg class="icon icon-true">
+                    <use href="./asset/play.svg#play"></use>
+                </svg>
+            </button></li>
+            <ul class="list guesses" id="guesses"></ul>
+        </div>
+        <div class="image" id="image"></div>
         <ul class="menu">
             <li><button id="upload">
                 <svg class="icon">
                     <use href="./asset/upload.svg#upload"></use>
                 </svg>
             </button></li>
-            <li><button id="webcam" disabled>
+            <li><button id="webcam">
                 <svg class="icon">
                     <use href="./asset/camera.svg#camera"></use>
                 </svg>
             </button></li>
-        </ul>
-        <div id="image"></div>
-        <ul class="list" id="guesses">
-            <li>
-                <var>.5</var>
-                <p>thing</p>
-            </li>
-            <li>
-                <var>.5</var>
-                <p>thing</p>
-            </li>
-            <li>
-                <var>.5</var>
-                <p>thing</p>
-            </li>
-        </ul>
-        <ul class="list" id="parameters"></ul>
+            <hr>
+            <li><button id="clear">
+                <svg class="icon">
+                    <use href="./asset/clear.svg#clear"></use>
+                </svg>
+            </button></li>
+            <li><button id="reset">
+                <svg class="icon">
+                    <use href="./asset/reset.svg#reset"></use>
+                </svg>
+            </button></li>
+        </ul> 
+        <ul class="list parameters" id="parameters"></ul>
     </main>
     <footer>
         <p>&copy; TotoShampoin, Parzi_Val 2023</p>
