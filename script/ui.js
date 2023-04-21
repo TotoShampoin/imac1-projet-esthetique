@@ -12,29 +12,14 @@ image_canvas.width = 480; image_canvas.height = 480;
 
 const $guesses = document.getElementById("guesses");
 
-function placeImage(image, fit_mode) {
-    const ar = (image.width || image.videoWidth) / (image.height || image.videoHeight);
-    let w, h;
-    if(
-        (fit_mode == "fit" && ar < 1) ||
-        (fit_mode == "fill" && ar > 1)
-    ) {
-        w = 480 * ar;
-        h = 480;
-    } else {
-        w = 480;
-        h = 480 / ar;
-    }
-    ctx_i.clearRect(0, 0, 480, 480);
-    ctx_i.drawImage(image, (480 - w)/2, (480 - h)/2, w, h);
-    ctx.drawImage(image_canvas, 0, 0);
-    if(get_parameter("repeat")) {
-        for(let i = -15; i <= 15; i++) {
-        for(let j = -15; j <= 15; j++) {
-            ctx.drawImage(image_canvas, i*480, j*480);
-        }
-        }
-    }
+function loadingIcon() {
+    let html = `<li class="loading">
+        <svg class="loading-icon">
+            <use href="./asset/loading.svg#loading"></use>
+        </svg>
+        <p class="loading-text">AI is starting...</p>
+    </li>`
+    if(html != $guesses.innerHTML) $guesses.innerHTML = html;
 }
 
 export function writeGuesses(guesses) {
@@ -48,14 +33,25 @@ export function writeGuesses(guesses) {
     if(html != $guesses.innerHTML) $guesses.innerHTML = html;
 }
 
-function loadingIcon() {
-    let html = `<li class="loading">
-        <svg class="loading-icon">
-            <use href="./asset/loading.svg#loading"></use>
-        </svg>
-        <p class="loading-text">AI is starting...</p>
-    </li>`
-    if(html != $guesses.innerHTML) $guesses.innerHTML = html;
+
+function placeImage(image, fit_mode) {
+    const ar = (image.width || image.videoWidth) / (image.height || image.videoHeight);
+    let w, h;
+    if((fit_mode == "fit" && ar < 1) || (fit_mode == "fill" && ar > 1)) {
+        w = 480 * ar; h = 480;
+    } else {
+        w = 480; h = 480 / ar;
+    }
+    ctx_i.clearRect(0, 0, 480, 480);
+    ctx_i.drawImage(image, (480 - w)/2, (480 - h)/2, w, h);
+    ctx.drawImage(image_canvas, 0, 0);
+    if(get_parameter("repeat")) {
+        for(let i = -15; i <= 15; i++) {
+        for(let j = -15; j <= 15; j++) {
+            ctx.drawImage(image_canvas, i*480, j*480);
+        }
+        }
+    }
 }
 
 function placeFilters() {
