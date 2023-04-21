@@ -99,3 +99,34 @@ $canvas.addEventListener("touchmove", e => {
     const y = py * 480 / rh;
     penMove(x, y);
 });
+
+$canvas.addEventListener("mousedown", e => {
+    const rect = e.target.getBoundingClientRect();
+    const rw = rect.right - rect.left;
+    const rh = rect.bottom - rect.top;
+    const px = e.clientX - rect.left;
+    const py = e.clientY - rect.top;
+    const x = px * 480 / rw;
+    const y = py * 480 / rh;
+    penDown(x, y);
+});
+document.addEventListener("mouseup", e => {
+    const rect = e.target.getBoundingClientRect();
+    const rw = rect.right - rect.left;
+    const rh = rect.bottom - rect.top;
+    const px = e.clientX - rect.left;
+    const py = e.clientY - rect.top;
+    const x = px * 480 / rw;
+    const y = py * 480 / rh;
+    penUp(x, y);
+});
+$canvas.addEventListener("mousemove", e => {
+    const rect = e.target.getBoundingClientRect();
+    const rw = rect.right - rect.left;
+    const rh = rect.bottom - rect.top;
+    const px = e.clientX - rect.left;
+    const py = e.clientY - rect.top;
+    const x = px * 480 / rw;
+    const y = py * 480 / rh;
+    penMove(x, y);
+})

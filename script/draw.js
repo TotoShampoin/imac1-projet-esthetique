@@ -22,6 +22,7 @@ export function penDown(x, y) {
 }
 
 export function penMove(x, y) {
+    if(!is_drawing) return;
     ctx.strokeStyle = get_parameter("pen-color");
     ctx.lineWidth = get_parameter("pen-size");
     ctx.beginPath();
