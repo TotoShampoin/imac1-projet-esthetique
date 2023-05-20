@@ -291,3 +291,18 @@ input[type=checkbox].param:checked::after {
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
 }
+
+@media screen and (min-width: 800px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;;
+        grid-auto-flow: column;
+    }
+    .parameters {
+        grid-row: span 2;
+    }
+    .hidden {
+        display: none;
+    }
+}
