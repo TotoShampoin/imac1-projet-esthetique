@@ -80,6 +80,7 @@ export const set_parameter = (name, value) => data.parameters.find(p => p.name =
 export const reset_all = () => data.parameters.forEach(p => {
     p.value = p.default;
     p.$input.value = p.default;
+    p.$input.checked = p.default;
 });
 
 export function loadImage(src) {
