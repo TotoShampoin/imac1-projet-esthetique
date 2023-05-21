@@ -43,6 +43,13 @@ main {
     padding-inline: 2rem;
 }
 
+footer img {
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    width: 4rem;
+}
+
 button {
     display: grid;
     place-items: center;
