@@ -298,6 +298,8 @@ input[type=checkbox].param:checked::after {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;;
         grid-auto-flow: column;
+        width: fit-content;
+        margin: auto;
     }
     .parameters {
         grid-row: span 2;
