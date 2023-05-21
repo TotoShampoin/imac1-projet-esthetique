@@ -293,13 +293,15 @@ input[type=checkbox].param:checked::after {
 }
 
 @media screen and (min-width: 800px) {
+    body {
+        width: fit-content;
+        margin: auto;
+    }
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;;
         grid-auto-flow: column;
-        width: fit-content;
-        margin: auto;
     }
     .parameters {
         grid-row: span 2;
